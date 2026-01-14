@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <title>TS01372-GiaBao-bai3</title>
+
+</head>
+<body>
+    <div class="container mt-5">
+    <h3 class="text-primary">Bài 3: Kết hợp Form và Tab</h3>
+    
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-pane" type="button" role="tab">Đăng ký</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-pane" type="button" role="tab">Đăng nhập</button>
+        </li>
+    </ul>
+
+    <div class="tab-content border border-top-0 p-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="register-pane" role="tabpanel">
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Họ và Tên</label>
+                    <input type="text" class="form-control" placeholder="Nhập họ và tên">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng Ký</button>
+            </form>
+        </div>
+
+        <div class="tab-pane fade" id="login-pane" role="tabpanel">
+            <h4 class="mt-2">Form Đăng nhập</h4>
+             <form>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="Nhập email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mật Khẩu</label>
+                    <input type="password" class="form-control" placeholder="Nhập mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng Nhập</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
