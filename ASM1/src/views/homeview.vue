@@ -6,8 +6,8 @@
         <div class="card h-100 shadow-sm">
           <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Tiêu đề bài viết mẫu {{ n }}</h5>
-            <p class="card-text text-muted">Mô tả ngắn về nội dung bài viết sẽ hiển thị ở đây...</p>
+            <h5 class="card-title">Tiêu đề bài viết {{ n }}</h5>
+            <p class="card-text text-muted">Mô tả ngắn về nội dung bài</p>
           </div>
           <div class="card-footer bg-white d-flex justify-content-between align-items-center">
             <small class="text-muted">Đăng bởi: Admin</small>

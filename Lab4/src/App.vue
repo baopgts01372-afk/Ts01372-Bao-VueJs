@@ -1,6 +1,5 @@
 <script setup>
-import Hello from './components/HelloWorld.vue';
-import Bai3 from './components/bai3.vue';
+
 import Bai4 from './components/bai4.vue';
 </script>
 
