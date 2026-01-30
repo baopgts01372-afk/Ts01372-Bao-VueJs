@@ -1,46 +1,58 @@
 <template>
-  <div class="card mb-3">
-    <div class="card-header">Tạo bài viết mới</div>
-    <div class="card-body">
-      <div class="mb-2">
-        <input v-model="title" class="form-control" placeholder="Tiêu đề bài viết" />
-      </div>
-      <div class="mb-2">
-        <input v-model="author" class="form-control" placeholder="Tên tác giả" />
-      </div>
-      <div class="mb-2">
-        <textarea v-model="content" class="form-control" placeholder="Nội dung bài viết"></textarea>
-      </div>
-      <button class="btn btn-primary" @click="submitPost">Đăng bài</button>
-    </div>
+  <div>
+    <h2>Tạo bài viết mới</h2>
+    <input v-model="title" placeholder="Tiêu đề bài viết" />
+    <input v-model="author" placeholder="Tên tác giả" />
+    <textarea v-model="content" placeholder="Nội dung bài viết"></textarea>
+    <button @click="submitPost">Đăng bài</button>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const emit = defineEmits(['add-post']);
-const title = ref('');
-const content = ref('');
-const author = ref('');
+// Sử dụng defineEmits để emit sự kiện
+const emit = defineEmits(['add-post'])
+
+const title = ref('')
+const content = ref('')
+const author = ref('')
 
 function submitPost() {
   if (title.value && content.value && author.value) {
     const newPost = {
       title: title.value,
       content: content.value,
-      author: author.value,
-      backgroundColor: '#f8f9fa', // Màu nền mặc định
-      textColor: '#212529'        // Màu chữ mặc định
-    };
-    emit('add-post', newPost); // Gửi dữ liệu ra cha
-    
-    // Reset form
-    title.value = '';
-    content.value = '';
-    author.value = '';
-  } else {
-    alert('Vui lòng nhập đủ thông tin');
+      author: author.value
+    }
+
+    // Gửi sự kiện 'add-post' với dữ liệu của bài viết
+    emit('add-post', newPost)
+
+    // Reset fields
+    title.value = ''
+    content.value = ''
+    author.value = ''
   }
 }
 </script>
+<style>
+input,
+textarea {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>

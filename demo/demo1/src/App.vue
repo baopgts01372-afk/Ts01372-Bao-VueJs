@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <h1>Quản lý Linh kiện PC</h1>
-    <CreatePost @add-post="addPost" />
-    <PostList :posts="posts" />
+    <Nhapsanpham @add-post="addPost" />
+    <Danhsachsanpham :posts="posts" />
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import CreatePost from './components/CreatePost.vue'
-import PostList from './components/PostList.vue'
+import Nhapsanpham from './components/Nhapsanpham.vue';
+import Danhsachsanpham from './components/Danhsachsanpham.vue';
 
-// Dán dữ liệu hardwareList vào đây
+
 const posts = ref([
     {
         name: "CPU AMD Ryzen 9 7950X",
