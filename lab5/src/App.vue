@@ -1,15 +1,18 @@
 <template>
-  <div id="app">
+  <!-- <div id="app">
     <h1>Quản lý Linh kiện PC</h1>
     <CreatePost @add-post="addPost" />
     <PostList :posts="posts" />
-  </div>
+  </div> -->
+
+  <bai1/>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import CreatePost from './components/CreatePost.vue'
-import PostList from './components/PostList.vue'
+//import PostList from './components/PostList.vue'
+import bai1 from './components/bai1.vue'
 
 // Dán dữ liệu hardwareList vào đây
 const posts = ref([
