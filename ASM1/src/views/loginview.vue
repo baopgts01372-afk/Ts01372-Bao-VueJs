@@ -1,3 +1,23 @@
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { loginUser } from '../utils/storage';
+
+const router = useRouter();
+const email = ref('');
+const password = ref('');
+
+const handleLogin = () => {
+  const res = loginUser(email.value, password.value);
+  if (res.success) {
+    alert('Đăng nhập thành công!');
+    router.push('/');
+  } else {
+    alert(res.message);
+  }
+};
+</script>
+
 <template>
   <div class="container d-flex justify-content-center align-items-center min-vh-75 mt-5">
     <div class="col-md-5">
@@ -6,23 +26,15 @@
           <h4 class="mb-0 fw-bold">Đăng Nhập</h4>
         </div>
         <div class="card-body p-4 p-md-5">
-          <form>
+          <form @submit.prevent="handleLogin">
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input v-model="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
               <label for="floatingInput">Địa chỉ Email</label>
             </div>
             
             <div class="form-floating mb-4">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <input v-model="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
               <label for="floatingPassword">Mật khẩu</label>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center mb-4">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="rememberMe">
-                <label class="form-check-label text-muted" for="rememberMe">Ghi nhớ tôi</label>
-              </div>
-              <a href="#" class="text-decoration-none text-primary small">Quên mật khẩu?</a>
             </div>
 
             <button type="submit" class="btn btn-primary w-100 py-2 fs-5 fw-bold shadow-sm">Đăng nhập</button>

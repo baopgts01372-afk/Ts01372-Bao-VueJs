@@ -1,25 +1,26 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import Navbar from './components/Navbar.vue'
-import Footer from './components/footer.vue' // Chúng ta sẽ tạo file này ở bước 2
+import Navbar from './components/Navbar.vue' // Import thanh menu vào
 </script>
 
 <template>
-  <div class="d-flex flex-column min-vh-100 bg-light">
-    <header>
-      <Navbar />
-    </header>
+  <div class="d-flex flex-column min-vh-100">
+    <Navbar />
 
     <main class="flex-grow-1">
       <RouterView />
     </main>
 
-    <Footer />
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+      <div class="container">
+        <small>&copy; 2024 Blog Cá Nhân - VueJS Assignment</small>
+      </div>
+    </footer>
   </div>
 </template>
 
 <style>
-/* Import font chữ đẹp từ Google Fonts */
+/* Thêm font chữ đẹp cho toàn bộ web */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 body {

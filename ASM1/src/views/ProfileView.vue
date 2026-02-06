@@ -1,40 +1,33 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import { getCurrentUser } from '../utils/storage';
+import { useRouter } from 'vue-router';
+
+const user = ref(null);
+const router = useRouter();
+
+onMounted(() => {
+  user.value = getCurrentUser();
+  if (!user.value) {
+    router.push('/login'); // Nếu chưa đăng nhập thì đá về trang login
+  }
+});
+</script>
+
 <template>
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-md-4 text-center">
-        <div class="card shadow-sm mb-3">
-          <div class="card-body">
-            <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Avatar">
-            <h4>Nguyễn Văn A</h4>
-            <p class="text-muted">nguyenvana@example.com</p>
-            <button class="btn btn-outline-primary btn-sm">Đổi ảnh đại diện</button>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow border-0 text-center p-5" v-if="user">
+          <div class="mb-4">
+             <img :src="`https://ui-avatars.com/api/?name=${user.name}&size=128&background=random`" class="rounded-circle shadow-sm">
           </div>
-        </div>
-      </div>
-      
-      <div class="col-md-8">
-        <div class="card shadow-sm">
-          <div class="card-header bg-white">
-            <h5 class="mb-0">Cập nhật thông tin</h5>
-          </div>
-          <div class="card-body">
-            <form>
-              <div class="row mb-3">
-                <div class="col-md-6">
-                  <label class="form-label">Họ tên</label>
-                  <input type="text" class="form-control" value="Nguyễn Văn A">
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label">Email</label>
-                  <input type="email" class="form-control" value="nguyenvana@example.com" disabled>
-                </div>
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Mật khẩu mới</label>
-                <input type="password" class="form-control" placeholder="Để trống nếu không đổi">
-              </div>
-              <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-            </form>
+          <h2 class="fw-bold">{{ user.name }}</h2>
+          <p class="text-muted">{{ user.email }}</p>
+          <hr>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary">Chỉnh sửa thông tin</button>
+            <button class="btn btn-outline-danger">Đổi mật khẩu</button>
           </div>
         </div>
       </div>
